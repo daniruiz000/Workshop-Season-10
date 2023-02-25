@@ -12,7 +12,7 @@ const Characters = () => {
     const [totalPages, setTotalPages] = React.useState();
     const [charactersList, setCharactersList] = React.useState([]);
     const [idActual, setIdActual] = React.useState();
-    const [loadding, setLoadding] = React.useState(true);
+    const [loadding, setLoadding] = React.useState(false);
 
     const apiCall = (page) => {
         setLoadding(true)
@@ -21,8 +21,8 @@ const Characters = () => {
             .then(data => {
                 setCharactersList(data.data)
                 setTotalPages(data.totalPages)
+                setLoadding(false)
             })
-        setLoadding(false)
     };
 
     React.useEffect(() => apiCall(page), [page])
@@ -30,7 +30,7 @@ const Characters = () => {
     return (
         <div className="characters">
             <h1 className="characters__title">DISNEYPEDIA</h1>
-            {loadding && <Loader/>}
+            {loadding === true && <Loader/>}
             {idActual && <CharacterDetail handleClick={() => setIdActual(null)} characterId={idActual} />}
             <div className="characters__list">
                 {charactersList.map(character => <CharacterInfo key={character._id}  handleClick={() => setIdActual(character._id)} character={character} />)}

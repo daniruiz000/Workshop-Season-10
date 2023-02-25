@@ -1,17 +1,21 @@
 import './CharacterDetail.css';
 import React from 'react';
+import Loader from '../Loader/Loader';
 
 const CharacterDetail = (props) => {
 
     const URL_API_CHARACTER = 'https://api.disneyapi.dev/characters/';
     const [character, setCharacter] = React.useState({});
-    
+    const [loadding, setLoadding] = React.useState(false);
+
     const callApiCharacter = () => {
         if (props.characterId) {
+            setLoadding(true)
             fetch(URL_API_CHARACTER + props.characterId)
                 .then(response => response.json())
                 .then(data => {
                     setCharacter(data)
+                    setLoadding(false)
                 })
         }
     };
@@ -19,7 +23,7 @@ const CharacterDetail = (props) => {
     React.useEffect(() => callApiCharacter(), [props.characterId]);
 
     return (
-        <>
+        <>  {loadding === true && <Loader/>}
             <div className='character-detail__container'  onClick = {props.handleClick}></div>
             <div className='character-detail' onClick = {props.handleClick}>
                 <h1 className='character-detail__title'>{character.name}</h1>
