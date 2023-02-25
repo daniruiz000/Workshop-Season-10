@@ -3,8 +3,7 @@
   height: 230vh;
   background-color: black;
   position: fixed;
-
-  opacity: 0.9;
+  opacity: 0.5;
 }
 
 .character-detail{
