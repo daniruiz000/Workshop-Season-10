@@ -9,12 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      
       <Characters/>
-      <div>
-
-      </div>
-
     </div>
   );
 }
