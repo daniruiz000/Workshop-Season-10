@@ -3,17 +3,19 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     margin: 20px;
     padding: 10px;
     border-radius: 5px;
 }
+
 .character-info__img{
     width: 80%;
     height: 80%;
     border-radius: 5px;
 }
+
 .character-info__text{
     text-align: center;
 }

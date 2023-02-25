@@ -1,6 +1,7 @@
-import './Loader.css'
+import './Loader.css';
 
 const Loader = ()=>{
+    
     return(
         <>
             <div className='loader__container'></div>
@@ -9,6 +10,6 @@ const Loader = ()=>{
     )
 
 
-}
+};
 
 export default Loader;

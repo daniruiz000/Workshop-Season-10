@@ -5,7 +5,7 @@ const CharacterDetail = (props) => {
 
     const URL_API_CHARACTER = 'https://api.disneyapi.dev/characters/';
     const [character, setCharacter] = React.useState({});
-
+    
     const callApiCharacter = () => {
         if (props.characterId) {
             fetch(URL_API_CHARACTER + props.characterId)
@@ -14,9 +14,9 @@ const CharacterDetail = (props) => {
                     setCharacter(data)
                 })
         }
-    }
+    };
 
-    React.useEffect(() => callApiCharacter(), [props.characterId])
+    React.useEffect(() => callApiCharacter(), [props.characterId]);
 
     return (
         <>
@@ -36,6 +36,6 @@ const CharacterDetail = (props) => {
  
        
     )
-}
+};
 
 export default CharacterDetail;
