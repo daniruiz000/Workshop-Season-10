@@ -1,15 +1,12 @@
-
 import './App.css';
 import React from 'react';
-import Characters from './components/Characters/Characters';
-
-
+import Disneypedia from './components/Disneypedia/Disneypedia';
 
 function App() {
 
   return (
     <div className="App">
-      <Characters/>
+      <Disneypedia/>
     </div>
   );
 }

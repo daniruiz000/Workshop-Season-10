@@ -1,10 +1,10 @@
-import './Characters.css';
+import './Disneypedia.css';
 import React from 'react';
 import CharacterInfo from '../CharacterInfo/CharacterInfo';
 import CharacterDetail from '../CharacterDetail/CharacterDetail';
 import Loader from '../Loader/Loader';
 
-const Characters = () => {
+const Disneypedia = () => {
 
     const URL_API = 'https://api.disneyapi.dev/characters?page=';
 
@@ -30,18 +30,18 @@ const Characters = () => {
     return (
         <div className="characters">
             <h1 className="characters__title">DISNEYPEDIA</h1>
-            {loadding === true && <Loader/>}
+            {loadding && <Loader />}
             {idActual && <CharacterDetail handleClick={() => setIdActual(null)} characterId={idActual} />}
             <div className="characters__list">
-                {charactersList.map(character => <CharacterInfo key={character._id}  handleClick={() => setIdActual(character._id)} character={character} />)}
+                {charactersList.map(character => <CharacterInfo key={character._id} handleClick={() => setIdActual(character._id)} character={character} />)}
             </div>
             <div className="characters__container-buttons">
-                <button disabled ={page ===1} onClick={() => (page === 1) ? setPage(page): setPage(page - 1) }>ANTERIOR</button>
+                <button disabled={page === 1} onClick={() => (page === 1) ? setPage(page) : setPage(page - 1)}>ANTERIOR</button>
                 <p>{page}</p>
-                <button disabled ={page === totalPages} onClick={() => (page < totalPages) ? setPage(page + 1) : setPage(page)}>SIGUIENTE</button>
+                <button disabled={page === totalPages} onClick={() => (page < totalPages) ? setPage(page + 1) : setPage(page)}>SIGUIENTE</button>
             </div>
         </div>
     );
 }
 
-export default Characters;
+export default Disneypedia;

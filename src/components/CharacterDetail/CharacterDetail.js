@@ -20,14 +20,14 @@ const CharacterDetail = (props) => {
         }
     };
 
-    React.useEffect(() => callApiCharacter(), [props.characterId]);
+    React.useEffect(callApiCharacter, [props.characterId]);
 
     return (
-        <>  {loadding === true && <Loader/>}
-            <div className='character-detail__container'  onClick = {props.handleClick}></div>
-            <div className='character-detail' onClick = {props.handleClick}>
+        <>  {loadding === true && <Loader />}
+            <div className='character-detail__container' onClick={props.handleClick}></div>
+            <div className='character-detail' onClick={props.handleClick}>
                 <h1 className='character-detail__title'>{character.name}</h1>
-                {character.imageUrl?.length > 0 && <img className='character-detail__img'src={character.imageUrl} />}
+                {character.imageUrl?.length > 0 && <img className='character-detail__img' src={character.imageUrl} alt='Imagen de personaje' />}
                 {character.allies?.length > 0 && <p className='character-detail__text'><span>Aliados:</span> {character.allies.toString().replaceAll(',', ', ')}</p>}
                 {character.enemies?.length > 0 && <p className='character-detail__text'><span>Enemigos:</span> {character.enemies.toString().replaceAll(',', ', ')}</p>}
                 {character.films?.length > 0 && <p className='character-detail__text'><span>Películas:</span> {character.films.toString().replaceAll(',', ', ')}</p>}
@@ -37,8 +37,6 @@ const CharacterDetail = (props) => {
                 {character.videoGames?.length > 0 && <p className='character-detail__text'><span>Videojuegos:</span> {character.videoGames.toString().replaceAll(',', ', ')}</p>}
             </div>
         </>
- 
-       
     )
 };
 
