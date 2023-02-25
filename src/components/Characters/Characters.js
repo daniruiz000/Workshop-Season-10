@@ -10,7 +10,7 @@ const Characters = () => {
     const [page, setPage] = React.useState(1);
     const [totalPages, setTotalPages] = React.useState();
     const [charactersList, setCharactersList] = React.useState([]);
-    const[idActual, setIdActual] = React.useState();
+    const [idActual, setIdActual] = React.useState();
 
 
 
@@ -25,12 +25,17 @@ const Characters = () => {
     }
 
     React.useEffect(() => apiCall(page), [page])
- 
+
 
     return (
-        <div className="charactersInfo">
-            <h1>DISNEYPEDIA</h1>
-            <div>
+        <div className="characters">
+            <h1 className="characters__title">DISNEYPEDIA</h1>
+            <div className="characters__list">
+                {charactersList.map(character => <CharacterInfo handleClick={() => setIdActual(character._id)} character={character} />)}
+            </div>
+            {idActual && <CharacterDetail handleClick={() => setIdActual(null)} characterId={idActual} />}
+            
+            <div className="characters__container-buttons">
                 <button onClick={() => {
                     if (page === 1) {
                         setPage(page)
@@ -47,12 +52,6 @@ const Characters = () => {
                     }
                 }}>SIGUIENTE</button>
             </div>
-            {idActual && <CharacterDetail handleClick = {()=>setIdActual(null)} characterId={idActual}/>}
-            <div>
-                {charactersList.map(character => <CharacterInfo handleClick = {()=>setIdActual(character._id)} character = {character}/>)}
-            </div>
-            
-
         </div>
     );
 }

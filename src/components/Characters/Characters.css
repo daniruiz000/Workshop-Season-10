@@ -1,0 +1,32 @@
+.characters{
+    background-color: black;
+}
+.characters__title{
+    color: white;
+    text-align: center;
+    margin: 20px;
+}
+.characters__list{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.characters__container-buttons{
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+.characters__container-buttons button{
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+.characters__detail{
+    background-color: grey;
+    position: relative;
+}

@@ -1,0 +1,14 @@
+.character-detail{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.character-detail span{
+  font-weight: 800;
+  font-size: 16px;
+}
