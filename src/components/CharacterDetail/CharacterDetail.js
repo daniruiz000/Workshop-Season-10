@@ -38,7 +38,7 @@ mostrar el componente Loader mientras tanto:
     React.useEffect(callApiCharacter, [props.characterId]);
 
 /*
-Nos devolverá un template con los datos del personaje en el cúal hemops pinchado,
+Nos devolverá un template con los datos del personaje en el cúal hemos pinchado,
 y mientrás se carga se mostrará el elemento Loadder.
 
 Sólo se mostrarán los datos que se reciban ya que algunos personajes no tienen todas
