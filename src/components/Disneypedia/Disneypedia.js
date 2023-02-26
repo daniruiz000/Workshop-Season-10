@@ -19,6 +19,7 @@ const Disneypedia = () => {
     const [charactersList, setCharactersList] = React.useState([]);
     const [idActual, setIdActual] = React.useState();
     const [loadding, setLoadding] = React.useState(false);
+    const [character, setCharacter] = React.useState({});
 
 /*Función de llamada a la Api para obtener una lista de personajes en función de la página deseada,
 obtiene tambien el número total de páginas para poder realizar la paginación mediante el componente
@@ -54,7 +55,7 @@ estados que hemos creado:
             <CharacterList charactersList={charactersList} handleClick={setIdActual}/>
             <NavigationPage handleClick={setPage} totalPages={totalPages} page={page}/>
             {loadding && <Loader/>}
-            {idActual && <CharacterDetail handleClick={() => setIdActual(null)} characterId={idActual} setState={setLoadding}/>}
+            {idActual && <CharacterDetail character={character} setCharacter = {setCharacter()} handleClick={() => setIdActual(null)} characterId={idActual} setState={setLoadding}/>}
  
         </div>
     );
