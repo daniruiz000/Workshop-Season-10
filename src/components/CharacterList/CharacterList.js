@@ -12,9 +12,7 @@ const CharacterList = ({ handleClick, charactersList, idActual }) => {
 
 export default CharacterList;
 
-/*
-Contiene cada uno de las tarjetas que creamos en CharacterInfo.
+/*Contiene cada uno de las tarjetas que creamos en CharacterInfo.
 
 Por cada personaje recibido de la lista de personajes que hemos guardado como estado
-crea un componente CharacterInfo.
-*/
+crea un componente CharacterInfo.*/

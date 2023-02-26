@@ -12,7 +12,7 @@ const Disneypedia = () => {
 
     const URL_API = 'https://api.disneyapi.dev/characters?page=';
 
-// Estados:
+//Estados:
 
     const [page, setPage] = React.useState(1);
     const [totalPages, setTotalPages] = React.useState();
@@ -26,8 +26,7 @@ obtiene tambien el número total de páginas para poder realizar la paginación 
 NavigationPage.
 
 Cuando se empieza a realizar la llamada se modificará el estado loadding para que se muestre el 
-componente Loader hasta que se reciba la respuesta.
-*/
+componente Loader hasta que se reciba la respuesta.*/
 
     const apiCall = (page) => {
         setLoadding(true)
@@ -44,10 +43,8 @@ componente Loader hasta que se reciba la respuesta.
 
     React.useEffect(() => apiCall(page), [page])
 
-/*
-Devolverá el siguiente template mostrando unos componentes u otros en función de los
-estados que hemos creado:
-*/
+/*Devolverá el siguiente template mostrando unos componentes u otros en función de los
+estados que hemos creado.*/
 
     return (
         <div className="characters">
@@ -56,7 +53,6 @@ estados que hemos creado:
             <NavigationPage handleClick={setPage} totalPages={totalPages} page={page}/>
             {loadding && <Loader/>}
             {idActual && <CharacterDetail handleClick={() => setIdActual(null)} characterId={idActual} setState={setLoadding}/>}
- 
         </div>
     );
 }

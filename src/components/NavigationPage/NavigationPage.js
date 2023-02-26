@@ -13,10 +13,8 @@ const NavigationPage = (props) => {
 
 export default NavigationPage;
 
-/* 
-Muestra los controles mediante botones que nos permiten navegar una página hacia
+/* Muestra los controles mediante botones que nos permiten navegar una página hacia
 delante o hacia atrás modificando el estado de la página que nos sirve de referencia, 
 que tambien se muestra.
 
-Estan condicionados para no activarse si no existen páginas adyacentes.
-*/
+Estan condicionados para no activarse si no existen páginas adyacentes.*/

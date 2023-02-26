@@ -4,10 +4,8 @@ import Loader from '../Loader/Loader';
 
 const CharacterDetail = (props) => {
 
-/*
-Url especifica para la solicitud de datos de personaje a la que añadiremos el id para mostrar
-el personaje deseado:
-*/
+/*Url especifica para la solicitud de datos de personaje a la que añadiremos el id para mostrar
+el personaje deseado.*/
 
     const URL_API_CHARACTER = 'https://api.disneyapi.dev/characters/';
 
@@ -15,11 +13,9 @@ el personaje deseado:
 
     const [character, setCharacter] = React.useState({});
     
-/*
-Función de llamada para obtener los datos de personaje del id que hemos añadido a la URL, 
+/*Función de llamada para obtener los datos de personaje del id que hemos añadido a la URL, 
 y a la que añadiremos que mientras se recibe la llamada el estado loadding cambie para
-mostrar el componente Loader mientras tanto:
-*/
+mostrar el componente Loader mientras tanto.*/
 
     const callApiCharacter = () => {
         if (props.characterId) {
@@ -37,15 +33,13 @@ mostrar el componente Loader mientras tanto:
 
     React.useEffect(callApiCharacter, [props.characterId]);
 
-/*
-Nos devolverá un template con los datos del personaje en el cúal hemos pinchado,
+/*Nos devolverá un template con los datos del personaje en el cúal hemos pinchado,
 y mientrás se carga se mostrará el elemento Loadder.
 
 Sólo se mostrarán los datos que se reciban ya que algunos personajes no tienen todas
 las propiedades definidas.
 
-Cuando se pulsa en el template se vuelve a la paginación.
-*/
+Cuando se pulsa en el template se vuelve a la paginación.*/
 
     return (
         <>  {props.loadding === true && <Loader />}
