@@ -4,26 +4,51 @@ import Loader from '../Loader/Loader';
 
 const CharacterDetail = (props) => {
 
+/*
+Url especifica para la solicitud de datos de personaje a la que añadiremos el id para mostrar
+el personaje deseado:
+*/
+
     const URL_API_CHARACTER = 'https://api.disneyapi.dev/characters/';
+
+//Estado para almacenar los datos del personaje sobre el que jhemos hecho la consulta:
+
     const [character, setCharacter] = React.useState({});
-    const [loadding, setLoadding] = React.useState(false);
+    
+/*
+Función de llamada para obtener los datos de personaje del id que hemos añadido a la URL, 
+y a la que añadiremos que mientras se recibe la llamada el estado loadding cambie para
+mostrar el componente Loader mientras tanto:
+*/
 
     const callApiCharacter = () => {
         if (props.characterId) {
-            setLoadding(true)
+            props.setState(true)
             fetch(URL_API_CHARACTER + props.characterId)
                 .then(response => response.json())
                 .then(data => {
                     setCharacter(data)
-                    setLoadding(false)
+                    props.setState(false)
                 })
         }
     };
 
+//Realizará la llamada en función del id que recibamos mediante props:
+
     React.useEffect(callApiCharacter, [props.characterId]);
 
+/*
+Nos devolverá un template con los datos del personaje en el cúal hemops pinchado,
+y mientrás se carga se mostrará el elemento Loadder.
+
+Sólo se mostrarán los datos que se reciban ya que algunos personajes no tienen todas
+las propiedades definidas.
+
+Cuando se pulsa en el template se vuelve a la paginación.
+*/
+
     return (
-        <>  {loadding === true && <Loader />}
+        <>  {props.loadding === true && <Loader />}
             <div className='character-detail__container' onClick={props.handleClick}></div>
             <div className='character-detail' onClick={props.handleClick}>
                 <h1 className='character-detail__title'>{character.name}</h1>

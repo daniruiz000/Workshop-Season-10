@@ -11,3 +11,13 @@ const Loader = () => {
 };
 
 export default Loader;
+
+/*
+Este componente nos servirá para mantener un mensaje de 'Cargando...' mientras se espera la respuesta
+de la llamada a la API que estemos realizando, tanto para el cambiode página como para cuando llama para
+cargar datos de detalle de un personaje.
+
+Funciona condicionalmente en función del estado loadding y se aplica en el componente Disneypedia como
+en el componente CharacterDetail.
+
+*/

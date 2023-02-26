@@ -13,13 +13,6 @@
     margin: 20px;
 }
 
-.characters__list{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    align-items: center;
-}
-
 .characters__container-buttons{
     display: flex;
     color: white;
